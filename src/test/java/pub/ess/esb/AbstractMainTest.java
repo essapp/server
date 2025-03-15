@@ -32,16 +32,12 @@ abstract class AbstractMainTest {
   @Test
   void testUi() {
     assertThat(allCounter(), is(1));
-    try (Http1ClientResponse response = client.get("/ui/index.html").request()) {
+    try (Http1ClientResponse response = client.get("/index.html").request()) {
       var status = response.status();
       assertThat(response.status(), is(Status.OK_200));
       assertThat(response.headers().contentType().orElseThrow().text(), is("text/html"));
     }
-    try (Http1ClientResponse response = client.get("/ui/css/app.css").request()) {
-      assertThat(response.status(), is(Status.OK_200));
-      assertThat(response.headers().contentType().orElseThrow().text(), is("text/css"));
-    }
-    try (Http1ClientResponse response = client.get("/ui/js/app.js").request()) {
+    try (Http1ClientResponse response = client.get("/loding.js").request()) {
       assertThat(response.status(), is(Status.OK_200));
       assertThat(response.headers().contentType().orElseThrow().text(), is("text/javascript"));
     }
