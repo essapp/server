@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  host: 0.0.0.0
+  # features:
+  #   static-content:
+  #     temporary-storage:
+  #       directory: "./target/helidon/tmp"
+  #       file-prefix: "helidon-custom"
+  #       file-suffix: ".cache"
+  #       # delete-on-exit: false
+  #     content-types:
+  #       # ico: "image/x-icon"
+  #       html: "text/html"
+  #       # css: "text/css"
+  #       # js: "text/javascript"
+  # classpath:
+  #   - context: "/"
+  #     location: "/essapp"
+  # content-types:
+  #   # ico: "image/x-icon"
+  #   html: "text/html"
+  #   css: "text/css"
+  #   js: "text/javascript"
+  # html: "application/xhtml+xml"
+  # css: "text/css"
+  # js: "application/javascript"
+  # - context: "/singleclasspath"
+  #   location: "web/resource.txt"
+  # - context: "/jar"
+  #   location: "META-INF/services"
+  # path:
+  #   - context: "/path"
+  #     location: "./src/test/resources/web"
+  #   - context: "/singlepath"
+  #     location: "./src/test/resources/web/resource.txt"
+
+app:
+  greeting: "Hello"
