@@ -51,8 +51,8 @@ public class Main {
         // res.headers().set(UI_REDIRECT);
         // res.send();
         // })
-        // .register("/ui", CounterService::new)
         .register("/", StaticContentService.builder("/essapp").welcomeFileName("index.html").build())
+        .register("/", CounterService::new)
         .register("/greet", new GreetService())
         .get("/simple-greet", (req, res) -> res.send("Hello World!"));
   }

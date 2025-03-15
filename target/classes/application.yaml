@@ -24,15 +24,6 @@ server:
   # html: "application/xhtml+xml"
   # css: "text/css"
   # js: "application/javascript"
-  # - context: "/singleclasspath"
-  #   location: "web/resource.txt"
-  # - context: "/jar"
-  #   location: "META-INF/services"
-  # path:
-  #   - context: "/path"
-  #     location: "./src/test/resources/web"
-  #   - context: "/singlepath"
-  #     location: "./src/test/resources/web/resource.txt"
 
 app:
   greeting: "Hello"

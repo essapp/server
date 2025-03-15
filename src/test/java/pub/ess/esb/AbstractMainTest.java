@@ -1,6 +1,5 @@
 package pub.ess.esb;
 
-import io.helidon.http.HeaderNames;
 import io.helidon.http.Status;
 import io.helidon.webclient.api.ClientResponseTyped;
 import io.helidon.webclient.http1.Http1Client;
@@ -33,7 +32,6 @@ abstract class AbstractMainTest {
   void testUi() {
     assertThat(allCounter(), is(1));
     try (Http1ClientResponse response = client.get("/index.html").request()) {
-      var status = response.status();
       assertThat(response.status(), is(Status.OK_200));
       assertThat(response.headers().contentType().orElseThrow().text(), is("text/html"));
     }
@@ -41,7 +39,7 @@ abstract class AbstractMainTest {
       assertThat(response.status(), is(Status.OK_200));
       assertThat(response.headers().contentType().orElseThrow().text(), is("text/javascript"));
     }
-    assertThat(allCounter(), is(2)); // includes /ui/api/counter calls
+    assertThat(allCounter(), is(5)); // includes /api/counter calls
   }
 
   @Test
@@ -66,7 +64,7 @@ abstract class AbstractMainTest {
   }
 
   private int allCounter() {
-    try (Http1ClientResponse response = client.get("/ui/api/counter").request()) {
+    try (Http1ClientResponse response = client.get("/api/counter").request()) {
       assertThat(response.status(), is(Status.OK_200));
       JsonNumber number = (JsonNumber) response.as(JsonObject.class).get("all");
       return number.intValue();
