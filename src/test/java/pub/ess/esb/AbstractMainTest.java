@@ -30,14 +30,16 @@ abstract class AbstractMainTest {
 
   @Test
   void testUi() {
-    assertThat(allCounter(), is(1));
+    assertThat(allCounter(), is(2));
     try (Http1ClientResponse response = client.get("/index.html").request()) {
       assertThat(response.status(), is(Status.OK_200));
-      assertThat(response.headers().contentType().orElseThrow().text(), is("text/html"));
+      assertThat(response.headers().contentType().orElseThrow().text(),
+          is("text/html"));
     }
     try (Http1ClientResponse response = client.get("/loding.js").request()) {
       assertThat(response.status(), is(Status.OK_200));
-      assertThat(response.headers().contentType().orElseThrow().text(), is("text/javascript"));
+      assertThat(response.headers().contentType().orElseThrow().text(),
+          is("text/javascript"));
     }
     assertThat(allCounter(), is(5)); // includes /api/counter calls
   }
