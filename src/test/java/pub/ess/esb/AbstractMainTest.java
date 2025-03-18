@@ -36,7 +36,7 @@ abstract class AbstractMainTest {
       assertThat(response.headers().contentType().orElseThrow().text(),
           is("text/html"));
     }
-    try (Http1ClientResponse response = client.get("/loding.js").request()) {
+    try (Http1ClientResponse response = client.get("/loading.js").request()) {
       assertThat(response.status(), is(Status.OK_200));
       assertThat(response.headers().contentType().orElseThrow().text(),
           is("text/javascript"));
